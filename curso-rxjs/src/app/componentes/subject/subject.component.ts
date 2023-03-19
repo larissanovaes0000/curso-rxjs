@@ -13,15 +13,18 @@ export class SubjectComponent implements OnInit {
     this.initBehaviourSubject();
   }
 
+  responseSubject: any
+  responseBehavior: any
+
   initSubject(){
     const subject = new Subject<number>()
 
     subject.subscribe({
-      next: (value: any) => console.log(value)
+      next: (value: any) => this.responseSubject = value
     });
 
     subject.subscribe({
-      next: (value: any) => console.log(value)
+      next: (value: any) => this.responseSubject = value
     });
 
     subject.next(10)
@@ -32,11 +35,11 @@ export class SubjectComponent implements OnInit {
     const bSubject = new BehaviorSubject<number>(5)
 
     bSubject.subscribe({
-      next: (value: any) => console.log(value)
+      next: (value: any) => this.responseBehavior = value
     });
 
     bSubject.subscribe({
-      next: (value: any) => console.log(value)
+      next: (value: any) => this.responseBehavior = value
     });
 
     bSubject.next(50)

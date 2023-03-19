@@ -7,17 +7,21 @@ import { throwError } from 'rxjs';
   styleUrls: ['./throw-error.component.scss']
 })
 export class ThrowErrorComponent implements OnInit {
+  responseNext: any
+  responseError: any
+  responseComplete: any
+
   ngOnInit(): void {
     this.operatorThrowError();
   }
 
   operatorThrowError() {
-    const err = throwError(() => 'mensagem de erro');
+    const err = throwError(() => 'ish deu ruim man');
 
     err.subscribe({
-      next: (res) => console.log(res),
-      error: (error) => console.log('ish deu ruim man', error),
-      complete: () => console.log('completou')
+      next: (res) => this.responseNext = res,
+      error: error => this.responseError = error,
+      complete: () => this.responseComplete = 'completou'
     })
 
   }

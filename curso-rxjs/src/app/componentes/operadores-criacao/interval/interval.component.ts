@@ -7,6 +7,7 @@ import { interval } from 'rxjs';
   styleUrls: ['./interval.component.scss']
 })
 export class IntervalComponent implements OnInit {
+  response: any
 
   ngOnInit(): void {
     this.operatorInterval()
@@ -14,11 +15,11 @@ export class IntervalComponent implements OnInit {
 
   operatorInterval() {
     const num = interval(1000);
-    const subscription = num.subscribe(res => console.log(res));
+    const subscription = num.subscribe(res => this.response = res);
 
     setTimeout(() => {
       subscription.unsubscribe()
-    }, 5000)
+    }, 10000)
   }
 
 }

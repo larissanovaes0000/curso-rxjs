@@ -8,6 +8,8 @@ import { ajax } from 'rxjs/ajax'
   styleUrls: ['./ajax.component.scss']
 })
 export class AjaxComponent implements OnInit {
+  response: any
+
   ngOnInit(): void {
     this.ajaxOperator()
   }
@@ -21,7 +23,7 @@ export class AjaxComponent implements OnInit {
         })
       )
 
-    http$.subscribe(res => console.log(res))
+    http$.subscribe(res => this.response = res)
   }
 
 }

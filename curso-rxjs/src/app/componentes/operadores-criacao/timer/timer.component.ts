@@ -7,6 +7,7 @@ import { concatMap, of, timer } from 'rxjs';
   styleUrls: ['./timer.component.scss']
 })
 export class TimerComponent implements OnInit {
+  response: any
 
   ngOnInit(): void {
     this.operatorTimer();
@@ -18,7 +19,7 @@ export class TimerComponent implements OnInit {
     timer(5000)
       .pipe(
         concatMap(() => values)
-      ).subscribe(res => console.log(res))
+      ).subscribe(res => this.response = res)
   }
 
 }

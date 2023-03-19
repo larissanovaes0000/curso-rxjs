@@ -12,13 +12,17 @@ export class OfComponent implements OnInit {
     this.operatorOf()
   }
 
+  responseArr: any;
+  responseString: any
+  responseMulti: any
+
   operatorOf() {
     const arr = of([1, 2, 3]);
     const str = of('Olá Mundo');
     const multiValores = of({ name: 'Larissa' }, true, 10, function showName() { return 'Larissa' });
 
-    arr.subscribe(res => console.log(res));
-    str.subscribe(res => console.log(res));
-    multiValores.subscribe(res => console.log(res));
+    arr.subscribe(res => this.responseArr = res);
+    str.subscribe(res => this.responseString = res);
+    multiValores.subscribe(res => this.responseMulti = res);
   }
 }

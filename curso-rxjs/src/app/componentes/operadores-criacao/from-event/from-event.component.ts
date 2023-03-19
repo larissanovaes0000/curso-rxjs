@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs';
 
 @Component({
@@ -8,6 +8,8 @@ import { fromEvent } from 'rxjs';
 })
 export class FromEventComponent implements AfterViewInit {
 
+  response: any
+
   @ViewChild('botao') botao!: ElementRef
 
   ngAfterViewInit(): void {
@@ -16,6 +18,6 @@ export class FromEventComponent implements AfterViewInit {
 
   operatorFromEvent() {
     const el = fromEvent(this.botao.nativeElement, 'click');
-    el.subscribe(res => console.log(res));
+    el.subscribe(res => this.response = res);
   }
 }

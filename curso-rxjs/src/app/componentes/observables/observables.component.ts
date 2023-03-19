@@ -8,6 +8,8 @@ import { interval, Observable } from 'rxjs';
 })
 export class ObservablesComponent implements OnInit {
 
+  responseInterval: any
+  responseNext: any
 
   ngOnInit(): void {
     this.initObservable()
@@ -16,8 +18,8 @@ export class ObservablesComponent implements OnInit {
   initObservable() {
     const observable = new Observable((subscriber) => {
       subscriber.next('funfou'),
-        subscriber.next('hey joe'),
-        subscriber.complete()
+      subscriber.next('Hello Downtown'),
+      subscriber.complete()
     })
 
     const observer = {
@@ -28,8 +30,8 @@ export class ObservablesComponent implements OnInit {
 
     const intervalo = interval(1000);
 
-    const subscription = observable.subscribe(observer);
-    const subscription2 = intervalo.subscribe(console.log);
+    const subscription = observable.subscribe(res => this.responseNext = res);
+    const subscription2 = intervalo.subscribe(res => this.responseInterval = res);
 
     setTimeout(() => {
       subscription2.unsubscribe()
