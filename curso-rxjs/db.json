@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Larissa Novaes",
+      "email": "larissa@email.com",
+      "cpf": "741258963"
+    },
+    {
+      "id": 2,
+      "name": "Wilson Novaes",
+      "email": "wilson@email.com",
+      "cpf": "789456123"
+    },
+    {
+      "id": 3,
+      "name": "Clarisse Alves",
+      "email": "clarisse@email.com",
+      "cpf": "963258741"
+    }
+  ],
+  "user": {
+    "id": 3,
+    "name": "Clarisse Alves",
+    "email": "clarisse@email.com",
+    "cpf": "963258741"
+  }
+}
