@@ -27,6 +27,7 @@ import { TakeUntilComponent } from './componentes/operadores-filtragem/take-unti
 import { TakeWhileComponent } from './componentes/operadores-filtragem/take-while/take-while.component';
 import { SkipComponent } from './componentes/operadores-filtragem/skip/skip.component';
 import { DebounceTimeComponent } from './componentes/operadores-filtragem/debounce-time/debounce-time.component';
+import { NavbarComponent } from './componentes/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { DebounceTimeComponent } from './componentes/operadores-filtragem/deboun
     TakeUntilComponent,
     TakeWhileComponent,
     SkipComponent,
-    DebounceTimeComponent
+    DebounceTimeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
