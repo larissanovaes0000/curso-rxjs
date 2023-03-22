@@ -7,6 +7,8 @@ import { from, map, pluck } from 'rxjs';
   styleUrls: ['./pluck.component.scss']
 })
 export class PluckComponent implements OnInit {
+  resultadosFiltrados1: any
+  resultadosFiltrados2: any
 
   constructor() { }
 
@@ -32,7 +34,7 @@ export class PluckComponent implements OnInit {
         map((res: any) => res.profissao.title)
       )
 
-    resultadosFiltrados$.subscribe(console.log)
-    resultadosFiltrados2$.subscribe(console.log)
+    resultadosFiltrados$.subscribe(res => this.resultadosFiltrados1 = res)
+    resultadosFiltrados2$.subscribe(res => this.resultadosFiltrados2 = res)
   }
 }

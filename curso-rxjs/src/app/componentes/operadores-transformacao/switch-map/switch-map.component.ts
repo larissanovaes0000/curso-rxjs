@@ -10,10 +10,13 @@ import { UsersService } from 'src/app/services/users.service';
 export class SwitchMapComponent implements AfterViewInit {
   @ViewChild('button') button!: ElementRef
 
+  resInterval: any
+  resSwitchMap: any
+
   constructor(private userService: UsersService) { }
 
   ngAfterViewInit(): void {
-    //this.switchMapOperator()
+    this.switchMapOperator()
     this.intervalOperator()
   }
 
@@ -21,7 +24,7 @@ export class SwitchMapComponent implements AfterViewInit {
     fromEvent(document, 'click')
     .pipe(
       switchMap(() => interval(1000))
-    ).subscribe(console.log)
+    ).subscribe(res => this.resInterval = res)
   }
 
   switchMapOperator() {
@@ -32,7 +35,7 @@ export class SwitchMapComponent implements AfterViewInit {
       .pipe(
         map((res: any) => res.cpf),
         switchMap(cpf => this.userService.getUserSwitchMapSearch(cpf))
-      ).subscribe(console.log)
+      ).subscribe(res => this.resSwitchMap = res)
 
   }
 

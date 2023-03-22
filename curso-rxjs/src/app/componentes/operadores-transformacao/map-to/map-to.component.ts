@@ -8,6 +8,9 @@ import { fromEvent, interval, mapTo } from 'rxjs';
 })
 export class MapToComponent implements OnInit {
 
+  resMapTo: any
+  resInterval: any
+
   constructor() { }
 
   ngOnInit(): void {
@@ -21,8 +24,8 @@ export class MapToComponent implements OnInit {
     const mapTo$ = clickEvent$.pipe(mapTo('hello downtown!'))
     const mapInterval$ = interval$.pipe(mapTo('passou 1 segundo'))
 
-    mapTo$.subscribe(console.log)
-    mapInterval$.subscribe(console.log)
+    mapTo$.subscribe(res => this.resMapTo = res)
+    mapInterval$.subscribe(res => this.resInterval = res)
   }
 
 }

@@ -9,6 +9,10 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class MapComponent implements OnInit {
 
+  resMap: any
+  resNumMap: any
+  resUsersMap: any
+
   constructor(private userService: UsersService) { }
 
   ngOnInit(): void {
@@ -32,9 +36,9 @@ export class MapComponent implements OnInit {
       map(num => num * 2)
     )
 
-    mapArr$.subscribe(console.log)
-    numMap$.subscribe(console.log)
+    mapArr$.subscribe(res => this.resMap = res)
+    numMap$.subscribe(res => this.resNumMap = res)
 
-    this.userService.getUsersHttp().subscribe(console.log)
+    this.userService.getUsersHttp().subscribe(res => this.resUsersMap = res)
   }
 }

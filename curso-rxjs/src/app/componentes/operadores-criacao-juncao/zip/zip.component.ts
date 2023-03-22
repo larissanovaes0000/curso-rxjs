@@ -7,6 +7,8 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./zip.component.scss']
 })
 export class ZipComponent {
+  resZip: any
+
   constructor(private UsersService: UsersService){}
   
   ngOnInit(): void {
@@ -14,7 +16,7 @@ export class ZipComponent {
   }
 
   getUsersZip(){
-    this.UsersService.getUsersZip().subscribe(res=> console.log(res))
+    this.UsersService.getUsersZip().subscribe(res=> this.resZip = res)
   }
 
 }

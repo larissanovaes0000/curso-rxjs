@@ -8,6 +8,7 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./to-array.component.scss']
 })
 export class ToArrayComponent implements OnInit {
+  response: any
 
   constructor(private userService: UsersService) { }
 
@@ -20,7 +21,7 @@ export class ToArrayComponent implements OnInit {
     const arr$ = obj$.pipe(toArray())
 
     this.userService.getUserToArray().subscribe(console.log)
-    arr$.subscribe(console.log)
+    arr$.subscribe(res => this.response = res)
   }
 
 }
