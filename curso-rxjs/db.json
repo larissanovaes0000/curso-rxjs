@@ -17,6 +17,18 @@
       "name": "Clarisse Alves",
       "email": "clarisse@email.com",
       "cpf": "963258741"
+    },
+    {
+      "id": 4,
+      "name": "Larissa",
+      "email": "clarisse@email.com",
+      "cpf": "963258741"
+    },
+    {
+      "id": 5,
+      "name": "João",
+      "email": "clarisse@email.com",
+      "cpf": "963258741"
     }
   ],
   "user": {

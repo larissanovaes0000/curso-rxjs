@@ -62,4 +62,11 @@ export class UsersService {
       toArray()
     )
   }
+
+  getUserDebounceTime(name: string) {
+    return this.http.get(`http://localhost:3000/users?name=${name}`)
+    .pipe(
+      toArray()
+    )
+  }
 }

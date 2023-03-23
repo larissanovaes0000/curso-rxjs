@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { filter, from, take } from 'rxjs';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -8,13 +9,38 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class FilterComponent implements OnInit {
 
-  constructor(private userService: UsersService){}
+  maiores: Array<any> = [];
+  menores: Array<any> = [];
 
-  ngOnInit(): void {
-    this.operator()
+  arr$ = from([
+    { name: 'Fulano', age: 10 },
+    { name: 'Menino', age: 20 },
+    { name: 'Creusa', age: 15 },
+    { name: 'Mario', age: 60 },
+    { name: 'João', age: 36 },
+    { name: 'Joaquim', age: 89 },
+    { name: 'Emílio', age: 55 },
+  ]);
+
+  constructor(private userService: UsersService) { }
+
+  ngOnInit(): void { }
+
+  filtrarMaiores() {
+    const dados$ = this.arr$.pipe(
+      filter(res => res.age > 18),
+    )
+    dados$.subscribe(res => {
+      this.maiores.push(res)
+    })
   }
 
-  operator(){
-
+  filtrarMenores() {
+    const dados$ = this.arr$.pipe(
+      filter(res => res.age < 18)
+    )
+    dados$.subscribe(res => {
+      this.menores.push(res)
+    })
   }
 }

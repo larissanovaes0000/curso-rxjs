@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { interval, timer, takeUntil, takeWhile } from 'rxjs';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -8,6 +9,8 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class TakeWhileComponent implements OnInit {
 
+  response: any
+
   constructor(private userService: UsersService){}
 
   ngOnInit(): void {
@@ -15,6 +18,12 @@ export class TakeWhileComponent implements OnInit {
   }
 
   operator(){
+
+    const it$ = interval(1000)
+   
+    const subscription$ = it$.pipe(
+      takeWhile(val => val <= 5)
+    ).subscribe(res => this.response = res)
 
   }
 }

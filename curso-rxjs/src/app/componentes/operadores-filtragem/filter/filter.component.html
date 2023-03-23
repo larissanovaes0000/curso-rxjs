@@ -1,1 +1,24 @@
-<p>filter works!</p>
+<div class="card m-3">
+    <div class="card-header">
+        Operador Filter
+    </div>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <div>
+                <h3>Lista de usuários - Maioridade</h3>
+                <ul>
+                    <li *ngFor="let user of maiores">Nome: {{user.name}} | Idade: {{user.age}}</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Lista de usuários - Menoridade</h3>
+                <ul>
+                    <li *ngFor="let user of menores">Nome: {{user.name}} | Idade: {{user.age}}</li>
+                </ul>
+            </div>
+        </blockquote>
+        <button class="btn btn-primary" (click)="filtrarMaiores()">Filtrar usuários com mais de 18 anos</button> <br>
+        <button class="btn btn-primary mt-3" (click)="filtrarMenores()">Filtrar usuários com menos de 18 anos</button>
+    </div>
+</div>

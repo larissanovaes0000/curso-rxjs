@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { interval, takeUntil, timer } from 'rxjs';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -8,13 +9,21 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class TakeUntilComponent implements OnInit {
 
-  constructor(private userService: UsersService){}
+  response: any
+
+  constructor(private userService: UsersService) { }
 
   ngOnInit(): void {
     this.operator()
   }
 
-  operator(){
+  operator() {
+    const it$ = interval(1000)
+    const timer$ = timer(5000)
+
+    const subscription$ = it$.pipe(
+      takeUntil(timer$)
+    ).subscribe(res => this.response = res)
 
   }
 }
