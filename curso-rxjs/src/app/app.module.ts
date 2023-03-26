@@ -28,6 +28,10 @@ import { TakeWhileComponent } from './componentes/operadores-filtragem/take-whil
 import { SkipComponent } from './componentes/operadores-filtragem/skip/skip.component';
 import { DebounceTimeComponent } from './componentes/operadores-filtragem/debounce-time/debounce-time.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { SwitchAllComponent } from './componentes/operadores-juncao/switch-all/switch-all.component';
+import { StartWithComponent } from './componentes/operadores-juncao/start-with/start-with.component';
+import { CombineLatestComponent } from './componentes/operadores-juncao/combine-latest/combine-latest.component';
+import { WithLatestFromComponent } from './componentes/operadores-juncao/with-latest-from/with-latest-from.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +59,11 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
     TakeWhileComponent,
     SkipComponent,
     DebounceTimeComponent,
-    NavbarComponent
+    NavbarComponent,
+    SwitchAllComponent,
+    StartWithComponent,
+    CombineLatestComponent,
+    WithLatestFromComponent
   ],
   imports: [
     BrowserModule,
