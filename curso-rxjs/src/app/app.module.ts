@@ -32,6 +32,18 @@ import { SwitchAllComponent } from './componentes/operadores-juncao/switch-all/s
 import { StartWithComponent } from './componentes/operadores-juncao/start-with/start-with.component';
 import { CombineLatestComponent } from './componentes/operadores-juncao/combine-latest/combine-latest.component';
 import { WithLatestFromComponent } from './componentes/operadores-juncao/with-latest-from/with-latest-from.component';
+import { ShareReplayComponent } from './componentes/operadores-multicasting/share-replay/share-replay.component';
+import { ShareComponent } from './componentes/operadores-multicasting/share/share.component';
+import { CatchErrorComponent } from './componentes/operadores-tratamento-erros/catch-error/catch-error.component';
+import { RetryComponent } from './componentes/operadores-tratamento-erros/retry/retry.component';
+import { RetryWhenComponent } from './componentes/operadores-tratamento-erros/retry-when/retry-when.component';
+import { TapComponent } from './componentes/operadores-utilitarios/tap/tap.component';
+import { DelayComponent } from './componentes/operadores-utilitarios/delay/delay.component';
+import { TimeoutComponent } from './componentes/operadores-utilitarios/timeout/timeout.component';
+import { EveryComponent } from './componentes/operadores-condicionais/every/every.component';
+import { FindComponent } from './componentes/operadores-condicionais/find/find.component';
+import { FindIndexComponent } from './componentes/operadores-condicionais/find-index/find-index.component';
+import { IsEmptyComponent } from './componentes/operadores-condicionais/is-empty/is-empty.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +75,19 @@ import { WithLatestFromComponent } from './componentes/operadores-juncao/with-la
     SwitchAllComponent,
     StartWithComponent,
     CombineLatestComponent,
-    WithLatestFromComponent
+    WithLatestFromComponent,
+    ShareReplayComponent,
+    ShareComponent,
+    CatchErrorComponent,
+    RetryComponent,
+    RetryWhenComponent,
+    TapComponent,
+    DelayComponent,
+    TimeoutComponent,
+    EveryComponent,
+    FindComponent,
+    FindIndexComponent,
+    IsEmptyComponent
   ],
   imports: [
     BrowserModule,

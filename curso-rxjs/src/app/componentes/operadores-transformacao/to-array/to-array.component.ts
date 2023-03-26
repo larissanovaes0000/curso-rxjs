@@ -20,7 +20,7 @@ export class ToArrayComponent implements OnInit {
     const obj$ = of({ name: "larissa", age: 30 })
     const arr$ = obj$.pipe(toArray())
 
-    this.userService.getUserToArray().subscribe(console.log)
+    //this.userService.getUserToArray().subscribe(console.log)
     arr$.subscribe(res => this.response = res)
   }
 

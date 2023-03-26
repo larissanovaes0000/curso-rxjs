@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { concat, forkJoin, interval, map, merge, Observable, toArray, zip } from 'rxjs';
+import { share, concat, forkJoin, interval, map, merge, Observable, shareReplay, toArray, zip, catchError, of, retry, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -58,15 +58,42 @@ export class UsersService {
 
   getUserToArray() {
     return this.http.get('http://localhost:3000/user')
-    .pipe(
-      toArray()
-    )
+      .pipe(
+        toArray()
+      )
   }
 
   getUserDebounceTime(name: string) {
     return this.http.get(`http://localhost:3000/users?name=${name}`)
-    .pipe(
-      toArray()
-    )
+      .pipe(
+        toArray()
+      )
+  }
+
+  getUserShareReplay() {
+    //requisição é feita só uma vez independente da quantidade de observables
+    return this.http.get('http://localhost:3000/users')
+      .pipe(
+        shareReplay(1)
+      )
+  }
+
+  getUserShare() {
+    //requisição é feita só uma vez independente da quantidade de observables
+    return this.http.get('http://localhost:3000/users')
+      .pipe(
+        share()
+      )
+  }
+
+  getUserCatchError() {
+    return this.http.get('http://localhost:3000/us')
+      .pipe(
+        catchError(error => {
+          of('ocorreu um erro', error)
+          return throwError(() => error)
+        }),
+        retry(5)
+      )
   }
 }
