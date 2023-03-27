@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { delayWhen, interval, map, retryWhen, tap, timer } from 'rxjs';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -16,6 +17,27 @@ export class RetryWhenComponent implements OnInit {
   }
 
   operador() {
-   
+    const it$ = interval(1000)
+    const subscription$ = it$.pipe(
+      map((val: any) => {
+        if (val > 5) {
+          throw val
+        }
+
+        return val
+      }),
+
+      retryWhen( error => (
+        error.pipe(
+        //  tap(val => console.log(`Value ${val}`)),
+          delayWhen(val => timer(val * 1000))
+        )
+      ))
+    )
+
+
+    subscription$.subscribe(res => this.response = res)
+
+
   }
 }

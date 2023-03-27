@@ -16,6 +16,6 @@ export class DelayComponent implements OnInit {
   }
 
   operador() {
-   
+   this.userService.getUserDelay().subscribe(res => this.response = res)
   }
 }

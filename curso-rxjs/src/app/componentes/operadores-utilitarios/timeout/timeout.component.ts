@@ -16,6 +16,6 @@ export class TimeoutComponent implements OnInit {
   }
 
   operador() {
-   
+    this.userService.getUserTimeout().subscribe(res => this.response = res)
   }
 }

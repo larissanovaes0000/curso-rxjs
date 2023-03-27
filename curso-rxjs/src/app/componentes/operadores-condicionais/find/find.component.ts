@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { find, of } from 'rxjs';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -16,6 +17,12 @@ export class FindComponent implements OnInit {
   }
 
   operador() {
-   
+    const values$ = of('Larissa', 'Letícia', 'Maurício');
+
+    const findName$ = values$.pipe(
+      find(name => name === 'Larissa')
+    )
+
+    findName$.subscribe(res => this.response = res)
   }
 }

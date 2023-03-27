@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { share, concat, forkJoin, interval, map, merge, Observable, shareReplay, toArray, zip, catchError, of, retry, throwError } from 'rxjs';
+import { share, concat, forkJoin, interval, map, merge, Observable, shareReplay, toArray, zip, catchError, of, retry, throwError, delay, timeout } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -94,6 +94,22 @@ export class UsersService {
           return throwError(() => error)
         }),
         retry(5)
+      )
+  }
+
+  getUserDelay() {
+    return this.http.get('http://localhost:3000/users')
+      .pipe(
+        delay(3000)
+      )
+  }
+
+  getUserTimeout() {
+    return this.http.get('http://localhost:3000/users')
+      .pipe(
+        delay(5000),
+        timeout(5000),
+        catchError(error => of('Ocorreu um erro', error.message))
       )
   }
 }
