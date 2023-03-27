@@ -20,7 +20,7 @@ export class IsEmptyComponent implements OnInit {
    const subject$ = new Subject<string>()
    const result$ = subject$.pipe(isEmpty())
    subject$.subscribe(res => this.response = res)
-   result$.subscribe(console.log)
+   //result$.subscribe(console.log)
    subject$.next('Larissa')
   }
 }
